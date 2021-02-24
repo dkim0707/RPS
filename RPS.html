@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function computerPlay() {
+            let comp = Math.floor(Math.random() * Math.floor(3));
+            if (comp == 0){
+                return "rock";
+            } else if (comp == 1) {
+                return "scissors";
+            } else if (comp == 2) {
+                return "paper";
+            }
+        }
+
+        function round() {
+            let win = 0;
+            let lose = 0;
+            let tie = 0;
+            alert("Start");
+            while (true) {
+                let playerSelection = window.prompt("Choose Rock, Paper, or Scissors");
+                let computerSelection = computerPlay();
+                if (playerSelection.toLowerCase() == "rock") {
+                    alert("Computer: " + computerSelection);
+                    if (computerSelection == "rock") {
+                        console.log("Tie");
+                        tie++;
+                    } else if (computerSelection == "paper") {
+                        console.log("Lose");
+                        lose++;
+                    } else if (computerSelection == "scissors") {
+                        console.log("Win");
+                        win++;
+                    }
+                }else if (playerSelection.toLowerCase() == "paper") {
+                    alert("Computer: " + computerSelection);
+                    if (computerSelection == "paper") {
+                        console.log("Tie");
+                        tie++;
+                    } else if (computerSelection == "scissors") {
+                        console.log("Lose");
+                        lose++;
+                    } else if (computerSelection == "rock") {
+                        console.log("Win");
+                        win++;
+                    }
+                } else if (playerSelection.toLowerCase() == "scissors") {
+                    alert("Computer: " + computerSelection);
+                    if (computerSelection == "scissors") {
+                        console.log("Tie");
+                        tie++;
+                    } else if (computerSelection == "rock") {
+                        console.log("Lose");
+                        lose++;
+                    } else if (computerSelection == "paper") {
+                        console.log("Win");
+                        win++;
+                    }
+                }    
+                printResults(win, lose, tie);
+            }
+        }
+
+        function printResults(win, lose, tie) {
+            console.log("Wins: ", win, '\n', "Loses: ", lose, '\n', "Ties: ", tie);
+        }
+    </script>
+
+    <button type="button" id="myBtn" onclick="round()">Try it</button>
+</body>
+</html>
